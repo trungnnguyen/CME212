@@ -103,7 +103,8 @@ class MortonCoder
 
   // Using a 32-bit unsigned int for the code_type
   // means we can only resolve 10 3D levels
-  static_assert(L >= 1 && L <= sizeof(code_type)*4/3, "L (LEVELS) must fit into code_type");
+  static_assert(L >= 1 && L <= 8*sizeof(code_type)/3,
+                "L (LEVELS) must fit into code_type");
 
   /** The number of bits per dimension [octree subdivisions]. #cells = 8^L. */
   static constexpr int levels = L;
